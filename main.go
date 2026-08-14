@@ -2,8 +2,18 @@ package main
 
 import (
 	"fmt"
+	"math"
+	"errors"
 )
-var MAX int64 = 100
+const MAX int64 = 100
+
+func Add(x int, y int) (int, error) {
+	result := x + y
+	if result < 10 {
+		return result, errors.New("less than threshold")
+	}
+	return result, nil
+}
 
 func main() {
 	
@@ -21,4 +31,25 @@ func main() {
 		fmt.Println(val)
 	}
 	fmt.Println(MAX)
+	fmt.Println("============")
+	const PI float64 = 3.14
+	fmt.Println(PI * 1000)
+	fmt.Println("============")
+	fmt.Println("============")
+	y := 12.32
+	fmt.Printf("Full control of text %v\n", y)
+	fmt.Println("============")
+	fmt.Println("============")
+	a := 5.048
+	b := 10.0230
+	k := math.Abs(a - b)
+	fmt.Printf("%.2f\n", k)
+	fmt.Println("============")
+
+	result, err := Add(2, 2)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(result)
+	}
 }
