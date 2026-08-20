@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"math"
 	"errors"
+	"strconv"
+	"os"
 )
 const MAX int64 = 100
 
@@ -13,6 +15,15 @@ func Add(x int, y int) (int, error) {
 		return result, errors.New("less than threshold")
 	}
 	return result, nil
+}
+
+func VariablePract() {
+	i := 1
+	for i < 201 {
+		fmt.Printf("This is iteration number # %v\n", i)
+		i++
+	}
+	fmt.Println("End of the road")
 }
 
 func main() {
@@ -52,4 +63,26 @@ func main() {
 	} else {
 		fmt.Println(result)
 	}
+	ch := 'E'
+	switch (ch) {
+	case 'A':
+		fmt.Println("foo")
+	case 'K':
+		fmt.Println("bar")
+	default:
+		fmt.Println("All else is at work")
+	}
+	lenArgs := len(os.Args)
+	fmt.Println(lenArgs)
+	fmt.Println("-======")
+	v := "22"
+	newV, err := strconv.Atoi(v)
+	if err != nil {
+		fmt.Println("Stop here")
+	}
+	fmt.Println(newV)
+	fmt.Println("-======")
+	fmt.Println("-======")
+	VariablePract()
+	fmt.Println("-======")
 }
